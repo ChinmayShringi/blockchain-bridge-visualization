@@ -1,7 +1,6 @@
-
 import { useRef, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, useGLTF, PerspectiveCamera } from '@react-three/drei';
+import { OrbitControls, useGLTF, PerspectiveCamera, Line } from '@react-three/drei';
 import * as THREE from 'three';
 
 // Blockchain cube component
@@ -46,18 +45,20 @@ const BlockchainCube = ({ position, size = 1, color = '#0077CC', pulsing = false
 
 // Line connecting two points
 const ConnectionLine = ({ start, end, color = '#0077CC' }) => {
-  // Use THREE.js to create a line between two points
+  // Create points for the line
   const points = [
     new THREE.Vector3(...start),
     new THREE.Vector3(...end)
   ];
-  
-  const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
 
   return (
-    <line geometry={lineGeometry}>
-      <lineBasicMaterial color={color} opacity={0.4} transparent />
-    </line>
+    <Line
+      points={points}
+      color={color}
+      lineWidth={1}
+      transparent
+      opacity={0.4}
+    />
   );
 };
 
