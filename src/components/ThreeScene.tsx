@@ -46,7 +46,8 @@ const BlockchainCube = ({ position, size = 1, color = '#0077CC', pulsing = false
 
 // Line connecting two points
 const ConnectionLine = ({ start, end, color = '#0077CC' }) => {
-  const ref = useRef<THREE.Line>(null!);
+  // Fix: Change the ref type to work with THREE.Line
+  const lineRef = useRef<THREE.Line>(null!);
   
   useEffect(() => {
     // Create points for the line
@@ -56,13 +57,13 @@ const ConnectionLine = ({ start, end, color = '#0077CC' }) => {
     
     // Create the line geometry
     const geometry = new THREE.BufferGeometry().setFromPoints(points);
-    if (ref.current) {
-      ref.current.geometry = geometry;
+    if (lineRef.current) {
+      lineRef.current.geometry = geometry;
     }
   }, [start, end]);
 
   return (
-    <line ref={ref}>
+    <line ref={lineRef}>
       <bufferGeometry />
       <lineBasicMaterial color={color} opacity={0.4} transparent linewidth={1} />
     </line>
