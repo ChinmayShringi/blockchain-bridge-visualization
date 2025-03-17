@@ -1,8 +1,8 @@
 
-import { Linkedin, Twitter, Mail } from 'lucide-react';
+import { Linkedin, Twitter, Mail, Github } from 'lucide-react';
 
 type SocialLink = {
-  type: 'linkedin' | 'twitter' | 'email';
+  type: 'linkedin' | 'twitter' | 'email' | 'github';
   url: string;
 };
 
@@ -22,6 +22,8 @@ const TeamMember = ({ name, position, image, socialLinks = [] }: TeamMemberProps
         return <Twitter size={16} />;
       case 'email':
         return <Mail size={16} />;
+      case 'github':
+        return <Github size={16} />;
       default:
         return null;
     }

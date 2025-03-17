@@ -5,7 +5,7 @@ export type TeamMember = {
   position: string;
   image: string;
   socialLinks?: Array<{
-    type: 'linkedin' | 'twitter' | 'email';
+    type: 'linkedin' | 'twitter' | 'email' | 'github';
     url: string;
   }>;
 };

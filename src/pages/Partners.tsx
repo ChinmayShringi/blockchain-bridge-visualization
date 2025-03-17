@@ -2,58 +2,12 @@
 import { useState } from 'react';
 import { Building, User, ExternalLink } from 'lucide-react';
 import PageTransition from '../components/PageTransition';
-
-// Partner and Alumni data (to be expanded with actual data)
-const partners = [
-  { id: 'ava-labs', name: 'Ava Labs', logo: 'https://via.placeholder.com/200?text=Ava+Labs', website: 'https://www.avalabs.org/' },
-  { id: 'microsoft', name: 'Microsoft', logo: 'https://via.placeholder.com/200?text=Microsoft', website: 'https://www.microsoft.com/' },
-  { id: 'republic', name: 'Republic', logo: 'https://via.placeholder.com/200?text=Republic', website: 'https://republic.com/' },
-  { id: 'hedera', name: 'Hedera', logo: 'https://via.placeholder.com/200?text=Hedera', website: 'https://hedera.com/' },
-  { id: 'the-graph', name: 'The Graph', logo: 'https://via.placeholder.com/200?text=The+Graph', website: 'https://thegraph.com/' },
-  { id: 'flashbots', name: 'Flashbots', logo: 'https://via.placeholder.com/200?text=Flashbots', website: 'https://www.flashbots.net/' },
-];
-
-const alumni = [
-  { 
-    id: 'john-doe', 
-    name: 'John Doe', 
-    photo: 'https://via.placeholder.com/200?text=John+Doe',
-    graduationYear: '2020',
-    company: 'Ethereum Foundation',
-    role: 'Protocol Researcher',
-    linkedin: 'https://linkedin.com/'
-  },
-  { 
-    id: 'jane-smith', 
-    name: 'Jane Smith', 
-    photo: 'https://via.placeholder.com/200?text=Jane+Smith',
-    graduationYear: '2019',
-    company: 'Coinbase',
-    role: 'Software Engineer',
-    linkedin: 'https://linkedin.com/'
-  },
-  { 
-    id: 'alex-wang', 
-    name: 'Alex Wang', 
-    photo: 'https://via.placeholder.com/200?text=Alex+Wang',
-    graduationYear: '2021',
-    company: 'ConsenSys',
-    role: 'Product Manager',
-    linkedin: 'https://linkedin.com/'
-  },
-  { 
-    id: 'sarah-johnson', 
-    name: 'Sarah Johnson', 
-    photo: 'https://via.placeholder.com/200?text=Sarah+Johnson',
-    graduationYear: '2018',
-    company: 'Chainlink Labs',
-    role: 'Cryptographic Researcher',
-    linkedin: 'https://linkedin.com/'
-  },
-];
+import { getPartners, getAlumni } from '../data/partners';
 
 const Partners = () => {
   const [activeTab, setActiveTab] = useState('partners');
+  const partners = getPartners();
+  const alumni = getAlumni();
 
   return (
     <PageTransition>
