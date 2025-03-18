@@ -1,4 +1,3 @@
-
 export type Partner = {
   id: string;
   name: string;
@@ -21,37 +20,37 @@ const partners: Partner[] = [
   { 
     id: 'ava-labs', 
     name: 'Ava Labs', 
-    logo: '/lovable-uploads/7365799b-90fd-40f0-84e5-804fdea356b5.png', 
+    logo: '/partners/avalabs-logo.png', 
     website: 'https://www.avalabs.org/' 
   },
   { 
     id: 'microsoft', 
     name: 'Microsoft', 
-    logo: '/lovable-uploads/7365799b-90fd-40f0-84e5-804fdea356b5.png', 
+    logo: '/partners/microsoft.png', 
     website: 'https://www.microsoft.com/' 
   },
   { 
     id: 'republic', 
     name: 'Republic', 
-    logo: '/lovable-uploads/7365799b-90fd-40f0-84e5-804fdea356b5.png', 
+    logo: '/partners/republic.jpg', 
     website: 'https://republic.com/' 
   },
   { 
     id: 'hedera', 
     name: 'Hedera', 
-    logo: '/lovable-uploads/7365799b-90fd-40f0-84e5-804fdea356b5.png', 
+    logo: '/partners/hedera-logo.png', 
     website: 'https://hedera.com/' 
   },
   { 
     id: 'the-graph', 
     name: 'The Graph', 
-    logo: '/lovable-uploads/7365799b-90fd-40f0-84e5-804fdea356b5.png', 
+    logo: '/partners/thegraph-logo.png', 
     website: 'https://thegraph.com/' 
   },
   { 
     id: 'flashbots', 
     name: 'Flashbots', 
-    logo: '/lovable-uploads/7365799b-90fd-40f0-84e5-804fdea356b5.png', 
+    logo: '/partners/flashbots-logo.png', 
     website: 'https://www.flashbots.net/' 
   },
 ];

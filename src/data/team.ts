@@ -1,4 +1,3 @@
-
 export type TeamMember = {
   id: string;
   name: string;
@@ -10,7 +9,6 @@ export type TeamMember = {
   }>;
 };
 
-// Placeholder images - replace with actual team member photos in production
 const placeholder = 'https://ui-avatars.com/api/?background=0D8ABC&color=fff&name=';
 
 export const teamMembers: TeamMember[] = [
@@ -18,7 +16,7 @@ export const teamMembers: TeamMember[] = [
     id: 'ayesha-kiani',
     name: 'Ayesha Kiani',
     position: 'Faculty Advisor',
-    image: '/lovable-uploads/31993eb4-9a35-4d18-a8d7-ec63d2b2c026.png',
+    image: '/ayesha.jpg',
     socialLinks: [
       { type: 'linkedin', url: 'https://linkedin.com/' },
       { type: 'email', url: 'mailto:ak@nyu.edu' }
@@ -28,7 +26,7 @@ export const teamMembers: TeamMember[] = [
     id: 'ben-liang',
     name: 'Ben Liang',
     position: 'President',
-    image: `${placeholder}Ben+Liang`,
+    image: '/ben.jpg',
     socialLinks: [
       { type: 'linkedin', url: 'https://linkedin.com/' },
       { type: 'twitter', url: 'https://twitter.com/' }
@@ -38,7 +36,7 @@ export const teamMembers: TeamMember[] = [
     id: 'ruben-garcia',
     name: 'Ruben Garcia',
     position: 'Vice President',
-    image: '/lovable-uploads/d693fba8-d6c9-41b9-9f98-ba6a623ba19d.png',
+    image: '/ruben.jpg',
     socialLinks: [
       { type: 'linkedin', url: 'https://linkedin.com/' }
     ]
@@ -47,7 +45,7 @@ export const teamMembers: TeamMember[] = [
     id: 'alejandro-gala',
     name: 'Alejandro Gala',
     position: 'Head of Community',
-    image: '/lovable-uploads/66746e8f-1c33-46f4-9c04-69592144483d.png',
+    image: '/alejandro.jpg',
     socialLinks: [
       { type: 'linkedin', url: 'https://linkedin.com/' },
       { type: 'twitter', url: 'https://twitter.com/' }
@@ -57,7 +55,7 @@ export const teamMembers: TeamMember[] = [
     id: 'kylie-wong',
     name: 'Kylie Wong',
     position: 'Head of Marketing',
-    image: `${placeholder}Kylie+Wong`,
+    image: '/kylie.jpg',
     socialLinks: [
       { type: 'linkedin', url: 'https://linkedin.com/' }
     ]
@@ -66,27 +64,117 @@ export const teamMembers: TeamMember[] = [
     id: 'nour-acogny',
     name: 'Nour Acogny',
     position: 'Secretary',
-    image: `${placeholder}Nour+Acogny`,
+    image: '/nour.jpg',
     socialLinks: [
       { type: 'linkedin', url: 'https://linkedin.com/' },
       { type: 'email', url: 'mailto:na@nyu.edu' }
     ]
   },
   {
-    id: 'john-smith',
-    name: 'John Smith',
-    position: 'Technical Lead',
-    image: `${placeholder}John+Smith`,
+    id: 'aatish',
+    name: 'Aatish',
+    position: 'Student Researcher',
+    image: `${placeholder}Aatish`,
+    socialLinks: [
+      { type: 'linkedin', url: 'https://linkedin.com/' }
+    ]
+  },
+  {
+    id: 'aayush-anand',
+    name: 'Aayush Anand',
+    position: 'Student Researcher',
+    image: `${placeholder}Aayush+Anand`,
+    socialLinks: [
+      { type: 'linkedin', url: 'https://linkedin.com/' }
+    ]
+  },
+  {
+    id: 'adi-nair',
+    name: 'Adi Nair',
+    position: 'Student Researcher',
+    image: `${placeholder}Adi+Nair`,
+    socialLinks: [
+      { type: 'linkedin', url: 'https://linkedin.com/' }
+    ]
+  },
+  {
+    id: 'amudhan-muthaiah',
+    name: 'Amudhan Muthaiah',
+    position: 'Student Researcher',
+    image: `${placeholder}Amudhan+Muthaiah`,
+    socialLinks: [
+      { type: 'linkedin', url: 'https://linkedin.com/' }
+    ]
+  },
+  {
+    id: 'anusha',
+    name: 'Anusha',
+    position: 'Student Researcher',
+    image: `${placeholder}Anusha`,
+    socialLinks: [
+      { type: 'linkedin', url: 'https://linkedin.com/' }
+    ]
+  },
+  {
+    id: 'chinmay-shringi',
+    name: 'Chinmay Shringi',
+    position: 'Student Researcher',
+    image: `${placeholder}Chinmay+Shringi`,
     socialLinks: [
       { type: 'linkedin', url: 'https://linkedin.com/' },
       { type: 'github', url: 'https://github.com/' }
     ]
   },
   {
-    id: 'sarah-chen',
-    name: 'Sarah Chen',
-    position: 'Research Lead',
-    image: `${placeholder}Sarah+Chen`,
+    id: 'dheeraj-maske',
+    name: 'Dheeraj Maske',
+    position: 'Student Researcher',
+    image: `${placeholder}Dheeraj+Maske`,
+    socialLinks: [
+      { type: 'linkedin', url: 'https://linkedin.com/' }
+    ]
+  },
+  {
+    id: 'goku',
+    name: 'Goku',
+    position: 'Student Researcher',
+    image: `${placeholder}Goku`,
+    socialLinks: [
+      { type: 'linkedin', url: 'https://linkedin.com/' }
+    ]
+  },
+  {
+    id: 'msf',
+    name: 'MSF',
+    position: 'Student Researcher',
+    image: `${placeholder}MSF`,
+    socialLinks: [
+      { type: 'linkedin', url: 'https://linkedin.com/' }
+    ]
+  },
+  {
+    id: 'ta-xia',
+    name: 'Ta Xia',
+    position: 'Student Researcher',
+    image: `${placeholder}Ta+Xia`,
+    socialLinks: [
+      { type: 'linkedin', url: 'https://linkedin.com/' }
+    ]
+  },
+  {
+    id: 'vaibhav-chandgir',
+    name: 'Vaibhav Chandgir',
+    position: 'Student Researcher',
+    image: `${placeholder}Vaibhav+Chandgir`,
+    socialLinks: [
+      { type: 'linkedin', url: 'https://linkedin.com/' }
+    ]
+  },
+  {
+    id: 'yathish-nv',
+    name: 'Yathish NV',
+    position: 'Student Researcher',
+    image: `${placeholder}Yathish+NV`,
     socialLinks: [
       { type: 'linkedin', url: 'https://linkedin.com/' }
     ]

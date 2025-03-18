@@ -1,4 +1,3 @@
-
 import { useRef, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF, PerspectiveCamera } from '@react-three/drei';
@@ -44,31 +43,16 @@ const BlockchainCube = ({ position, size = 1, color = '#0077CC', pulsing = false
   );
 };
 
-// Line connecting two points using THREE.js primitives
-const ConnectionLine = ({ start, end, color = '#0077CC' }) => {
-  // Create a geometry for the line
-  const points = [
-    new THREE.Vector3(...start),
-    new THREE.Vector3(...end)
-  ];
-  
-  // Create a ref for the line
-  const lineRef = useRef<THREE.Line>(null!);
-  
-  return (
-    <line ref={lineRef}>
-      <bufferGeometry>
-        <float32BufferAttribute 
-          attach="attributes-position" 
-          array={new Float32Array([...start, ...end])} 
-          count={2} 
-          itemSize={3} 
-        />
-      </bufferGeometry>
-      <lineBasicMaterial color={color} opacity={0.4} transparent />
-    </line>
-  );
-};
+// Optimized ConnectionLine component
+const ConnectionLine = ({ start, end, color = '#0077CC' }) => (
+  <primitive object={new THREE.Line(
+    new THREE.BufferGeometry().setFromPoints([
+      new THREE.Vector3(...start),
+      new THREE.Vector3(...end)
+    ]),
+    new THREE.LineBasicMaterial({ color, opacity: 0.4, transparent: true })
+  )} />
+);
 
 // Main scene component
 const Scene = () => {

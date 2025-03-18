@@ -1,15 +1,16 @@
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Calendar, Filter } from 'lucide-react';
 import EventCard from '../components/EventCard';
 import PageTransition from '../components/PageTransition';
 import { getPastEvents, getUpcomingEvents } from '../data/events';
 
 const Events = () => {
-  const [activeTab, setActiveTab] = useState('upcoming');
-  const [yearFilter, setYearFilter] = useState('all');
   const upcomingEvents = getUpcomingEvents();
   const pastEvents = getPastEvents();
+  
+  // Automatically set initial tab to 'past' if no upcoming events
+  const [activeTab, setActiveTab] = useState(upcomingEvents.length > 0 ? 'upcoming' : 'past');
+  const [yearFilter, setYearFilter] = useState('all');
   
   // Apply year filter to past events
   const filteredPastEvents = yearFilter === 'all' 
@@ -28,38 +29,42 @@ const Events = () => {
             <div className="chip mb-4 animate-fade-in">Join Us</div>
             <h1 className="section-heading animate-fade-in animation-delay-200">Events</h1>
             <p className="text-white/80 text-lg animate-fade-in animation-delay-400">
-              Discover our upcoming events and browse through our past workshops, presentations, and hackathons.
+              {upcomingEvents.length > 0 
+                ? "Discover our upcoming events and browse through our past workshops, presentations, and hackathons."
+                : "Browse through our past events while we prepare for upcoming workshops, presentations, and hackathons."}
             </p>
           </div>
         </div>
         
-        {/* Tab Navigation */}
+        {/* Tab Navigation - Only show if there are upcoming events */}
         <div className="container mx-auto px-4 mb-12">
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <button 
-              className={`px-6 py-3 font-semibold rounded-lg transition-colors ${
-                activeTab === 'upcoming' 
-                  ? 'bg-nyu-blue text-white' 
-                  : 'bg-white/10 text-white hover:bg-white/15'
-              }`}
-              onClick={() => setActiveTab('upcoming')}
-            >
-              Upcoming Events
-            </button>
-            <button 
-              className={`px-6 py-3 font-semibold rounded-lg transition-colors ${
-                activeTab === 'past' 
-                  ? 'bg-nyu-blue text-white' 
-                  : 'bg-white/10 text-white hover:bg-white/15'
-              }`}
-              onClick={() => setActiveTab('past')}
-            >
-              Past Events
-            </button>
-          </div>
+          {upcomingEvents.length > 0 && (
+            <div className="flex flex-wrap justify-center gap-4 mb-8">
+              <button 
+                className={`px-6 py-3 font-semibold rounded-lg transition-colors ${
+                  activeTab === 'upcoming' 
+                    ? 'bg-nyu-blue text-white' 
+                    : 'bg-white/10 text-white hover:bg-white/15'
+                }`}
+                onClick={() => setActiveTab('upcoming')}
+              >
+                Upcoming Events
+              </button>
+              <button 
+                className={`px-6 py-3 font-semibold rounded-lg transition-colors ${
+                  activeTab === 'past' 
+                    ? 'bg-nyu-blue text-white' 
+                    : 'bg-white/10 text-white hover:bg-white/15'
+                }`}
+                onClick={() => setActiveTab('past')}
+              >
+                Past Events
+              </button>
+            </div>
+          )}
           
-          {/* Year Filter (for Past Events) */}
-          {activeTab === 'past' && (
+          {/* Year Filter (show when viewing past events) */}
+          {(activeTab === 'past' || upcomingEvents.length === 0) && (
             <div className="flex flex-wrap justify-center items-center gap-4 mb-8">
               <div className="flex items-center text-white/60">
                 <Filter size={16} className="mr-2" />
@@ -112,9 +117,7 @@ const Events = () => {
               <Calendar size={48} className="mx-auto mb-4 text-white/40" />
               <h3 className="text-xl font-semibold mb-2">No events found</h3>
               <p className="text-white/60">
-                {activeTab === 'upcoming' 
-                  ? 'There are no upcoming events scheduled at this time. Check back soon!' 
-                  : 'No past events match your current filter. Try adjusting your criteria.'}
+                No past events match your current filter. Try adjusting your criteria.
               </p>
             </div>
           )}

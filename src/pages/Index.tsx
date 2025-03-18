@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import { ChevronRight, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -6,11 +5,33 @@ import ThreeScene from '../components/ThreeScene';
 import NewsletterForm from '../components/NewsletterForm';
 import EventCard from '../components/EventCard';
 import PageTransition from '../components/PageTransition';
-import { getUpcomingEvents } from '../data/events';
+import { getUpcomingEvents, formatEventDate, getPastEvents } from '../data/events';
+
+const BackgroundVisuals = () => {
+  return (
+    <div className="absolute inset-0 z-0">
+      <div className="relative w-full h-full">
+      {/* <div className="absolute inset-0">
+          <ThreeScene/>
+        </div> */}
+        {/* <div className="absolute inset-0">
+          <ThreeScene position={[0, 30, 0]} />
+        </div>
+        <div className="absolute inset-0">
+          <ThreeScene position={[0, 30, 0]} />
+        </div>
+        <div className="absolute inset-0">
+          <ThreeScene position={[0, 30, 0]} />
+        </div> */}
+      </div>
+    </div>
+  );
+};
 
 const Index = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const upcomingEvents = getUpcomingEvents().slice(0, 3);
+  const pastEvents = getPastEvents().slice(0, 3);
   
   // Create a parallax effect on scroll
   useEffect(() => {
@@ -30,11 +51,13 @@ const Index = () => {
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="relative h-screen overflow-hidden flex items-center">
-          {/* 3D Background */}
-          <div className="absolute inset-0 z-0">
+          {/* Replace the single ThreeScene with BackgroundVisuals */}
+          {/* <BackgroundVisuals /> */}
+                    {/* 3D Background */}
+                    <div className="absolute inset-0 z-0">
             <ThreeScene />
           </div>
-          
+
           {/* Dark Overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-nyu-dark/70 via-nyu-dark/50 to-nyu-dark z-10"></div>
           
@@ -51,10 +74,11 @@ const Index = () => {
                 researchers.
               </p>
               <div className="flex flex-wrap gap-4 animation-delay-600 animate-fade-in">
-                <Link to="/events" className="btn-primary">
-                  Explore Events <ChevronRight size={20} className="ml-2" />
+                <Link to="/events" className="hero-btn-primary group">
+                  Explore Events 
+                  <ChevronRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <Link to="/team" className="btn-secondary">
+                <Link to="/team" className="hero-btn-secondary group">
                   Meet The Team
                 </Link>
               </div>
@@ -69,33 +93,69 @@ const Index = () => {
           </div>
         </section>
         
-        {/* Upcoming Events Section */}
+        {/* Events Section - Conditionally show upcoming or past events */}
         <section className="py-20 bg-nyu-dark relative">
           <div className="container mx-auto px-4">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-              <div>
-                <div className="chip mb-4">Don't Miss Out</div>
-                <h2 className="section-heading">Upcoming Events</h2>
-              </div>
-              <Link to="/events" className="inline-flex items-center text-nyu-blue hover:text-nyu-teal transition-colors font-semibold">
-                View All Events <ArrowRight size={18} className="ml-2" />
-              </Link>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {upcomingEvents.map((event) => (
-                <div key={event.id} className="animate-fade-in">
-                  <EventCard
-                    title={event.title}
-                    date={event.date}
-                    image={event.image}
-                    link={event.link}
-                    description={event.description}
-                    isPast={event.isPast}
-                  />
+            {upcomingEvents.length > 0 ? (
+              // Show Upcoming Events if available
+              <>
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                  <div>
+                    <div className="chip mb-4">Don't Miss Out</div>
+                    <h2 className="section-heading">Upcoming Events</h2>
+                  </div>
+                  <Link to="/events" className="inline-flex items-center text-nyu-blue hover:text-nyu-teal transition-colors font-semibold">
+                    View All Events <ArrowRight size={18} className="ml-2" />
+                  </Link>
                 </div>
-              ))}
-            </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {upcomingEvents.map((event) => (
+                    <div key={event.id} className="h-full animate-fade-in">
+                      <EventCard
+                        title={event.title}
+                        date={formatEventDate(event.date)}
+                        image={event.image}
+                        link={event.link}
+                        description={event.description}
+                        isPast={event.isPast}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </>
+            ) : (
+              // Show Past Events when no upcoming events
+              <>
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                  <div>
+                    <div className="chip mb-4">Recent Highlights</div>
+                    <h2 className="section-heading">Past Events</h2>
+                    <p className="text-white/80 max-w-2xl">
+                      Check out some of our recent events while we prepare for upcoming ones.
+                    </p>
+                  </div>
+                  <Link to="/events" className="inline-flex items-center text-nyu-blue hover:text-nyu-teal transition-colors font-semibold">
+                    View All Events <ArrowRight size={18} className="ml-2" />
+                  </Link>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {pastEvents.map((event) => (
+                    <div key={event.id} className="h-full animate-fade-in">
+                      <EventCard
+                        title={event.title}
+                        date={formatEventDate(event.date)}
+                        image={event.image}
+                        link={event.link}
+                        description={event.description}
+                        isPast={true}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         </section>
         
@@ -126,8 +186,9 @@ const Index = () => {
         </section>
         
         {/* Newsletter Section */}
-        <section className="py-20 glass-panel rounded-none">
-          <div className="container mx-auto px-4">
+        <section className="py-20 glass-panel rounded-none relative">
+          <div className="absolute inset-0 bg-nyu-dark/80"></div>
+          <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-12 items-center">
               <div className="flex-1">
                 <div className="chip mb-4">Stay Connected</div>
@@ -161,6 +222,29 @@ const Index = () => {
             </div>
           </div>
         </section>
+
+        <div className="grid md:grid-cols-3 gap-8 mt-12 px-4 md:px-8">
+          <div className="mission-card p-8">
+            <h3 className="text-xl font-bold mb-4 text-gradient">Build</h3>
+            <p className="text-white/80">
+              We promote building applications and systems on blockchain technology through hackathons, workshops, and collaborative projects.
+            </p>
+          </div>
+          
+          <div className="mission-card p-8">
+            <h3 className="text-xl font-bold mb-4 text-gradient">Research</h3>
+            <p className="text-white/80">
+              We support academic and industry research that advances the understanding and application of blockchain technology across disciplines.
+            </p>
+          </div>
+          
+          <div className="mission-card p-8">
+            <h3 className="text-xl font-bold mb-4 text-gradient">Educate</h3>
+            <p className="text-white/80">
+              We provide educational resources, host guest lectures, and organize workshops to help students understand blockchain fundamentals.
+            </p>
+          </div>
+        </div>
       </div>
     </PageTransition>
   );

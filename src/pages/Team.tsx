@@ -1,5 +1,4 @@
-
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { teamMembers } from '../data/team';
 import TeamMember from '../components/TeamMember';
 import PageTransition from '../components/PageTransition';
@@ -7,10 +6,59 @@ import PageTransition from '../components/PageTransition';
 const Team = () => {
   const [filter, setFilter] = useState('all');
   
-  // Filter team members by role if needed
-  const filteredMembers = filter === 'all' 
-    ? teamMembers 
-    : teamMembers.filter(member => member.position.toLowerCase().includes(filter.toLowerCase()));
+  // Generate unique filters based on positions
+  const filters = useMemo(() => {
+    const positions = teamMembers.map(member => member.position);
+    const uniquePositions = [...new Set(positions)];
+    
+    // Create filter categories
+    const filterCategories = {
+      all: 'All',
+      faculty: ['Faculty Advisor'],
+      executive: ['President', 'Vice President'],
+      heads: ['Head of Community', 'Head of Marketing', 'Secretary'],
+      students: ['Student Researcher']
+    };
+
+    // Create filter buttons data
+    const filterButtons = [
+      { id: 'all', label: 'All' },
+      { 
+        id: 'faculty', 
+        label: 'Faculty',
+        positions: filterCategories.faculty
+      },
+      {
+        id: 'executive',
+        label: 'Executive',
+        positions: filterCategories.executive
+      },
+      {
+        id: 'heads',
+        label: 'Department Heads',
+        positions: filterCategories.heads
+      },
+      {
+        id: 'students',
+        label: 'Student Researchers',
+        positions: filterCategories.students
+      }
+    ];
+
+    return filterButtons;
+  }, []);
+  
+  // Filter team members based on selected filter
+  const filteredMembers = useMemo(() => {
+    if (filter === 'all') return teamMembers;
+
+    const selectedFilter = filters.find(f => f.id === filter);
+    if (!selectedFilter?.positions) return teamMembers;
+
+    return teamMembers.filter(member => 
+      selectedFilter.positions.includes(member.position)
+    );
+  }, [filter, filters]);
 
   return (
     <PageTransition>
@@ -26,33 +74,20 @@ const Team = () => {
           </div>
         </div>
         
-        {/* Team Filters (optional) */}
+        {/* Dynamic Team Filters */}
         <div className="container mx-auto px-4 mb-12">
           <div className="flex flex-wrap justify-center gap-4">
-            <button 
-              className={`chip ${filter === 'all' ? 'bg-nyu-blue' : 'bg-white/10'} transition-colors duration-300`}
-              onClick={() => setFilter('all')}
-            >
-              All
-            </button>
-            <button 
-              className={`chip ${filter === 'faculty' ? 'bg-nyu-blue' : 'bg-white/10'} transition-colors duration-300`}
-              onClick={() => setFilter('faculty')}
-            >
-              Faculty
-            </button>
-            <button 
-              className={`chip ${filter === 'president' ? 'bg-nyu-blue' : 'bg-white/10'} transition-colors duration-300`}
-              onClick={() => setFilter('president')}
-            >
-              Executive
-            </button>
-            <button 
-              className={`chip ${filter === 'head' ? 'bg-nyu-blue' : 'bg-white/10'} transition-colors duration-300`}
-              onClick={() => setFilter('head')}
-            >
-              Department Heads
-            </button>
+            {filters.map((filterButton) => (
+              <button 
+                key={filterButton.id}
+                className={`chip ${
+                  filter === filterButton.id ? 'bg-nyu-blue' : 'bg-white/10'
+                } transition-colors duration-300`}
+                onClick={() => setFilter(filterButton.id)}
+              >
+                {filterButton.label}
+              </button>
+            ))}
           </div>
         </div>
         
@@ -60,7 +95,11 @@ const Team = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
             {filteredMembers.map((member, index) => (
-              <div key={member.id} className="animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
+              <div 
+                key={member.id} 
+                className="animate-fade-in" 
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
                 <TeamMember
                   name={member.name}
                   position={member.position}
