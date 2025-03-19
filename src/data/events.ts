@@ -1,8 +1,5 @@
 export interface Speaker {
   name: string;
-  role: string;
-  company: string;
-  image?: string;
 }
 
 export interface Event {
@@ -29,222 +26,346 @@ const isFutureDate = (dateString: string): boolean => {
   return eventDate >= today;
 };
 
+// Updates needed for image paths:
+const imagePaths = {
+  "cube3-ai-s24": "/events/jonathan_j.png",
+  "bitmind-s24": "/events/ben_liang.png",
+  "uniswap-s24": "/events/drew_turchin.png",
+  "klyra-f23": "/events/reimagine_financial.png",
+  "rodeo-f23": "/events/rodeo_found_labs.png",
+  "trust-lottery-f23": "/events/the_trust_lottery.png",
+  "aztec-s24": "/events/aztech_privacy.png",
+  "hedera-s24": "/events/empowering_enterprise.png",
+  "mev-s24": "/events/mev_on_eth.png",
+  "ora-protocol-s24": "/events/technical_workshop.png",
+  "microsoft-s24": "/events/blockchain_microsoft.png",
+  "nomad-capital-f23": "/events/nomad_capital.png",
+  "investment-framework-f23": "/events/framework_for_evaluating.png",
+  "alliance-dao-f23": "/events/defi_alliance.png",
+  "graph-workshop-f23": "/events/graph_workshop.png",
+  "kurtosis-f23": "/events/kurtosis_talk.png",
+  "ava-labs-f23": "/events/ava_labs.png",
+  "hypersdk-f24": "/events/decentralize_and_digitalize.png",
+  "tokenomics-f24": "/events/exploring_the_evolution.png",
+  "ora-f24": "/events/upgrading_prediction.png",
+  "crypto-under-hood-f24": "/events/blockchains_under.png"
+};
+
 export const events: Event[] = [
   {
-    id: 'ava-labs-f23',
-    title: 'Ava Labs Workshop',
-    date: 'October 15, 2023',
-    description: 'An in-depth technical workshop with Ava Labs on building applications on the Avalanche blockchain.',
-    image: defaultImage, 
-    link: 'https://lu.ma/acfa3srq',
-    get isPast() { return !isFutureDate(this.date) },
-    type: 'workshop'
-  },
-  {
-    id: 'kurtosis-f23',
-    title: 'Kurtosis Technical Workshop',
-    date: 'October 25, 2023',
-    description: 'Learn about blockchain testing and development environments with Kurtosis.',
-    image: defaultImage,
-    link: 'https://partiful.com/e/kmcKFIkdyFahjGKqp0zA',
-    get isPast() { return !isFutureDate(this.date) },
-    type: 'workshop'
-  },
-  {
-    id: 'graph-f23',
-    title: 'The Graph Protocol Workshop',
-    date: 'November 5, 2023',
-    description: 'Introduction to The Graph protocol and how to build and query subgraphs for blockchain data.',
-    image: defaultImage,
-    link: 'https://partiful.com/e/yFykXbl1P7YurbaUOXLa',
-    get isPast() { return !isFutureDate(this.date) },
-    type: 'workshop'
-  },
-  {
-    id: 'alliance-dao-f23',
-    title: 'Alliance DAO Presentation',
-    date: 'November 15, 2023',
-    description: 'Exploring the intersection of DAOs and traditional organizations with Alliance DAO.',
-    image: defaultImage,
-    link: 'https://partiful.com/e/8Z3c31NETjBvNgn9hO96',
-    get isPast() { return !isFutureDate(this.date) },
-    type: 'speaker'
-  },
-  {
-    id: 'skylar-yin-f23',
-    title: 'Guest Lecture: Skylar Yin',
-    date: 'November 20, 2023',
-    description: 'Special guest lecture on blockchain entrepreneurship and innovation.',
-    image: defaultImage,
-    link: 'https://partiful.com/e/RHxhQddgHzwIfiparAM6',
-    get isPast() { return !isFutureDate(this.date) },
-    type: 'speaker'
-  },
-  {
-    id: 'nomad-capital-f23',
-    title: 'Nomad Capital Workshop',
-    date: 'December 5, 2023',
-    description: 'Fragmented Liquidity in a Decentralized Finance World with Ricky Li from Nomad Capital.',
-    image: defaultImage,
-    link: 'https://partiful.com/e/cDCgQCt6C9tG0GEnxtqM',
-    get isPast() { return !isFutureDate(this.date) },
-    type: 'workshop'
-  },
-  
-  // Spring 2024 Events
-  {
-    id: 'microsoft-s24',
-    title: 'Microsoft Blockchain Solutions',
-    date: 'February 10, 2024',
-    description: 'Exploring enterprise blockchain solutions with Microsoft technology experts.',
-    image: defaultImage,
-    link: 'https://partiful.com/e/iob4uvQmPWbjuiGsERuH',
-    get isPast() { return !isFutureDate(this.date) },
-    type: 'workshop'
-  },
-  {
-    id: 'ora-protocol-s24',
-    title: 'Ora Protocol Workshop',
-    date: 'February 25, 2024',
-    description: 'Technical deep dive into Ora Protocol and decentralized oracle networks.',
-    image: defaultImage,
-    link: 'https://partiful.com/e/L8KPmBv1AwRh3bSeeIdd',
-    get isPast() { return !isFutureDate(this.date) },
-    type: 'workshop'
-  },
-  {
-    id: 'flashbots-s24',
-    title: 'Flashbots MEV Workshop',
-    date: 'March 15, 2024',
-    description: 'Understanding Miner Extractable Value (MEV) and the Flashbots ecosystem.',
-    image: defaultImage,
-    link: 'https://partiful.com/e/1RvwDMh0ygyr7oor20qy',
-    get isPast() { return !isFutureDate(this.date) },
-    type: 'workshop'
-  },
-  {
-    id: 'hedera-s24',
-    title: 'Hedera Hashgraph Technical Session',
-    date: 'April 5, 2024',
-    description: 'Exploring the Hedera Hashgraph consensus algorithm and ecosystem.',
-    image: defaultImage,
-    link: 'https://partiful.com/e/Oms7CxdAwmC9r9jXGXHE',
-    get isPast() { return !isFutureDate(this.date) },
-    type: 'workshop'
-  },
-  {
-    id: 'aztec-s24',
-    title: 'Aztec Protocol: Zero-Knowledge Proofs',
-    date: 'April 20, 2024',
-    description: 'Technical deep dive into zero-knowledge proofs and privacy-preserving transactions with Aztec Protocol.',
-    image: defaultImage,
-    link: 'https://partiful.com/e/1KRGV2vxlZe91Lp3eGsX',
-    get isPast() { return !isFutureDate(this.date) },
-    type: 'workshop'
-  },
-  
-  // Fall 2024 Events
-  {
-    id: 'joe-bonneau-2024',
-    title: 'Cryptography Deep Dive',
-    date: '2024-04-15',
-    description: 'Join us for an insightful session on advanced cryptography concepts.',
-    image: '/placeholder.svg',
-    link: 'https://partiful.com/e/62at55lyoJ8Wx75VkD8X',
-    get isPast() { return !isFutureDate(this.date) },
-    type: 'speaker',
+    id: "cube3-ai-s24",
+    title: "Jonathan J. Anastasia - Cube3.ai",
+    date: "March 18, 2024",
+    description: "On March 18th, Blockchain Lab will welcome Jonathan Anastasia, President of Cube3.Al. Cube3.AI is an innovative web3 platform dedicated to real-time fraud and crypto crime prevention.",
+    image: "/events/jonathan_j.png",
+    link: "",
+    type: "speaker",
     speakers: [
       {
-        name: 'Joe Bonneau',
-        role: 'Assistant Professor',
-        company: 'NYU',
-        image: '/speakers/joe-bonneau.jpg'
-      },
-      {
-        name: 'Benedict Bunz',
-        role: 'Researcher',
-        company: 'Ethereum Foundation',
-        image: '/speakers/benedict-bunz.jpg'
+        name: "Jonathan J. Anastasia"
       }
-    ]
+    ],
+    get isPast() { return !isFutureDate(this.date) },
   },
   {
-    id: 'ava-labs-2024',
-    title: 'Ava Labs: Building on Avalanche',
-    date: '2024-04-02',
-    description: 'Learn about building on the Avalanche blockchain with the Ava Labs team.',
-    image: '/placeholder.svg',
-    link: 'https://x.com/BlockchainNYU/status/1841148606046167091',
-    get isPast() { return !isFutureDate(this.date) },
-    type: 'workshop'
-  },
-  {
-    id: 'foundation-lab-2024',
-    title: 'Foundation Lab Workshop',
-    date: '2024-04-20',
-    description: 'An interactive workshop exploring blockchain fundamentals and applications.',
-    image: '/placeholder.svg',
-    link: 'https://partiful.com/e/18qIsmb309uJtTBUxn6s',
-    get isPast() { return !isFutureDate(this.date) },
-    type: 'workshop'
-  },
-  {
-    id: 'republic-2024',
-    title: 'Republic: Future of Digital Assets',
-    date: '2024-04-10',
-    description: 'Discover the future of digital assets with Republic.',
-    image: '/placeholder.svg',
-    link: 'https://x.com/BlockchainNYU/status/1846607004065820943',
-    get isPast() { return !isFutureDate(this.date) },
-    type: 'speaker'
-  },
-  {
-    id: 'ora-protocol-2024',
-    title: 'Ora Protocol: Web3 Infrastructure',
-    date: '2024-04-25',
-    description: 'Deep dive into Web3 infrastructure with Ora Protocol.',
-    image: '/placeholder.svg',
-    link: 'https://x.com/BlockchainNYU/status/1853185187347116531',
-    get isPast() { return !isFutureDate(this.date) },
-    type: 'workshop'
-  },
-  {
-    id: 'van-eck-2024',
-    title: 'Van Eck: Digital Asset Investment',
-    date: '2024-05-01',
-    description: 'Learn about digital asset investment strategies with Van Eck.',
-    image: '/placeholder.svg',
-    link: 'https://x.com/BlockchainNYU/status/1863113845255868630',
-    get isPast() { return !isFutureDate(this.date) },
-    type: 'speaker'
-  },
-  {
-    id: 'klyra-2024',
-    title: 'Klyra: Blockchain Innovation',
-    date: '2024-05-10',
-    description: 'Explore blockchain innovations with Klyra.',
-    image: '/placeholder.svg',
-    link: 'https://partiful.com/e/SsDZsZdaV2lSw1drQRYi',
-    get isPast() { return !isFutureDate(this.date) },
-    type: 'workshop'
-  },
-  {
-    id: 'benedict-bunz-2024',
-    title: 'Cryptography Session with Benedict Bunz',
-    date: '2024-05-15',
-    description: 'An engaging session on advanced cryptography concepts with Benedict Bunz.',
-    image: '/placeholder.svg',
-    link: 'https://www.instagram.com/blockchainlabnyu/p/DAV_ZyTRPdd/',
-    get isPast() { return !isFutureDate(this.date) },
-    type: 'speaker',
+    id: "bitmind-s24",
+    title: "Ben Liang - BitMind",
+    date: "February 10, 2024",
+    description: "Benjamin Liang is an AI engineer at BitMind (Bittensor Subnet 34), focusing on decentralized deepfake detection and agentic AI in the fastest growing applications-focused subnet of 2024.\n\nHe completed both undergraduate and master's degrees at NYU, mastering out of a PhD in Computer Science (Graphics, Human Perception, ML/AI) at NYU's Immersive Computing Lab, where he led a publication collaboration with NVIDIA.\n\nHe formerly served as President of Blockchain Lab @ NYU and has won over 50 Web3 hackathons.",
+    image: "/events/ben_liang.png",
+    link: "",
+    type: "speaker",
     speakers: [
       {
-        name: 'Benedict Bunz',
-        role: 'Researcher',
-        company: 'Ethereum Foundation',
-        image: '/speakers/benedict-bunz.jpg'
+        name: "Benjamin Liang"
       }
-    ]
+    ],
+    get isPast() { return !isFutureDate(this.date) },
+  },
+  {
+    id: "uniswap-s24",
+    title: "The Next Era of DeFi",
+    date: "February 3, 2024",
+    description: "Drew's talk will focus on Uniswap Labs' role in the evolving DeFi landscape, including its impact on decentralized exchanges, liquidity provision, and the future of on-chain finance. He will also discuss key concepts in crypto and blockchain, such as smart contracts, automated market makers (AMMs), decentralized liquidity, and the importance of interoperability in DeFi.\n\nFor those looking to upskill or enter the crypto industry, Drew will share insights on essential skills, including financial modeling for DeFi, blockchain analytics, smart contract literacy, and risk management in decentralized finance. He will also cover the growing demand for expertise in partnerships, business development, and venture opportunities within crypto startups.\n\nAdditionally, Drew will provide guidance on employment and internship opportunities in the blockchain space, discussing what firms like Uniswap Labs and others look for in candidates, how to break into the industry from traditional finance or tech, and networking strategies to land roles in DeFi, crypto ventures, and Web3 startups.",
+    image: "/events/drew_turchin.png",
+    link: "",
+    type: "speaker",
+    speakers: [
+      {
+        name: "Drew Turchin"
+      }
+    ],
+    get isPast() { return !isFutureDate(this.date) },
+  },
+  {
+    id: "klyra-f23",
+    title: "Reimagining Financial Infrastructure with DeFi",
+    date: "December 5, 2023",
+    description: "\ud83c\udf1f Join us for an exciting exploration of decentralized finance (DeFi) with Alejandro, a seasoned crypto builder and co-founder of Klyra! \ud83c\udf1f\n\nAre you curious about how traditional financial systems like clearing houses and brokers operate? Wondering how DeFi is reshaping this landscape and what it means for the future of finance? This is your chance to dive into the world of decentralized infrastructure and learn from someone at the forefront of innovation.\n\nAlejandro, an ex-NYU Tandon student turned founding engineer at Klyra, has been building in crypto for 3 years, with experience at LayerZero and OmniX. Klyra is revolutionizing financial infrastructure by enabling decentralized settlement for exchanges\u2014bridging the gap between traders and venues with unparalleled efficiency.",
+    image: "/events/reimagine_financial.png",
+    link: "",
+    type: "speaker",
+    speakers: [
+      {
+        name: "Alejandro"
+      }
+    ],
+    get isPast() { return !isFutureDate(this.date) },
+  },
+  {
+    id: "rodeo-f23",
+    title: "Rodeo - Foundation Labs x Blockchain Lab @ NYU",
+    date: "October 24, 2023",
+    description: "For years, traditional social networks haven't served creatives well. Algorithms make it difficult for creators to connect meaningfully with their audience, often burying their work under layers of content. But that's all changing with Rodeo, the latest platform launched by the team behind Foundation.app, one of the top NFT marketplaces.\n\nRodeo is a new kind of social platform where creativity comes first. Designed specifically for creators, it offers a unique twist: the ability for fans to mint and collect creators' posts. This feature transforms the relationship between creators and their fans, turning engagement into true support.\n\nJoin us at the Blockchain Lab at NYU to hear from the Foundation Lab team about their journey from building a record-breaking NFT marketplace to creating one of the first web3-powered social platforms. Get early access to Rodeo, share your thoughts, and learn how blockchain is revolutionizing the creator-fan relationship.\n\nCurious about the future of creative content and crypto? Our panel will be there to answer all your burning questions. Don't miss this exciting opportunity to dive deep into the future of web3 for creators!\n\nPlus, enjoy some great food and grab exclusive merch while you're here!",
+    image: "/events/rodeo_found_labs.png",
+    link: "",
+    type: "speaker",
+    speakers: [
+      {
+        name: "Rodeo"
+      }
+    ],
+    get isPast() { return !isFutureDate(this.date) },
+  },
+  {
+    id: "trust-lottery-f23",
+    title: "The Trust Lottery with Joseph Bonneau",
+    date: "October 10, 2023",
+    description: "Joseph Bonneau is an Assistant Professor at the Courant Institute, NYU, and a Research Partner on the a16z crypto team. He specializes in applied cryptography and computer security.\n\nIn his talk, Prof. Bonneau will share insights on verifiable exchanges and randomized beacons. His research aims to create transparent systems that enhance trust and allow independent transaction validation.",
+    image: "/events/the_trust_lottery.png",
+    link: "",
+    type: "speaker",
+    speakers: [
+      {
+        name: "Joseph Bonneau"
+      }
+    ],
+    get isPast() { return !isFutureDate(this.date) },
+  },
+  {
+    id: "aztec-s24",
+    title: "Aztec & Privacy Event @ NYU",
+    date: "April 16, 2024",
+    description: "Join us at the Leslie eLab for a talk by Michael Klein!",
+    image: "/events/aztech_privacy.png",
+    link: "",
+    type: "speaker",
+    speakers: [
+      {
+        name: "Michael Klein"
+      }
+    ],
+    get isPast() { return !isFutureDate(this.date) },
+  },
+  {
+    id: "hedera-s24",
+    title: "Empowering Enterprise Solutions, Hedera @ NYU",
+    date: "April 23, 2024",
+    description: "Join us for an insightful deep dive into Hedera, a distributed ledger technology with hashgraph consensus.\n\nOur speaker will provide an overview of Hedera, its unique features, and capabilities. The session will also explore real-world enterprise use cases built on the Hedera network, demonstrating how businesses can leverage this technology to enhance security and efficiency in their operations.\n\nDon't miss this opportunity to learn about the practical applications of Hedera and how it's transforming the enterprise landscape.\n\nThis event will be hosted at NYU in the entrepreneurship e-lab but you can join us online!\n\nPS: Merch will be distributed \ud83d\ude0f",
+    image: "/events/empowering_enterprise.png",
+    link: "https://nyu.zoom.us/j/99465597502",
+    type: "speaker",
+    speakers: [
+      {
+        name: "Jean Gal"
+      }
+    ],
+    get isPast() { return !isFutureDate(this.date) },
+  },
+  {
+    id: "mev-s24",
+    title: "MEV on Ethereum: The past, present, and future",
+    date: "March 26, 2024",
+    description: "This talk will introduce MEV, provide a background on MEV solutions (past present, and future) on Ethereum, and highlight open research areas for future work. It will provide an overview of the fundamental challenges posed by MEV and introduce some of the promising related research areas that have led many of us to fall down the MEV rabbit hole.\n\nSpeaker Bio:\nSarah Allen leads the Research Org at Flashbots. Flashbots is a research and development organization formed to mitigate the negative externalities posed by Maximal Extractable Value (MEV) to stateful blockchains, starting with Ethereum. You can find out more at https://www.flashbots.net/.",
+    image: "/events/mev_on_eth.png",
+    link: "",
+    type: "speaker",
+    speakers: [
+      {
+        name: "Sarah Allen"
+      }
+    ],
+    get isPast() { return !isFutureDate(this.date) },
+  },
+  {
+    id: "ora-protocol-s24",
+    title: "Technical Workshop With Ora Protocol",
+    date: "March 12, 2024",
+    description: "Dan Tan from Ora Protocol is coming to the elab for a technical workshop on zero knowledge proofs and will walk us through how to write a host circuit. Come learn about exciting new tech fr. Good food will be provided. \ud83d\udcaf",
+    image: "/events/technical_workshop.png",
+    link: "",
+    type: "workshop",
+    speakers: [
+      {
+        name: "Dan Tan"
+      }
+    ],
+    get isPast() { return !isFutureDate(this.date) },
+  },
+  {
+    id: "microsoft-s24",
+    title: "Blockchain @ Microsoft Workshop",
+    date: "February 27, 2024",
+    description: "Join us at the Blockchain Lab @ NYU for a workshop featuring Yorke Rhodes, the co-founder of Blockchain @ Microsoft. Gain insights as he shares his extensive experience in the Web3 space and presents his groundbreaking work.",
+    image: "/events/blockchain_microsoft.png",
+    link: "",
+    type: "workshop",
+    speakers: [
+      {
+        name: "Yorke Rhodes"
+      }
+    ],
+    get isPast() { return !isFutureDate(this.date) },
+  },
+  {
+    id: "nomad-capital-f23",
+    title: "NOMAD CAPITAL Workshop",
+    date: "December 5, 2023",
+    description: "Topic: Fragmented Liquidity in a Decentralized Finance World\n\nRicky Li is a managing partner of Nomad Capital, Co-founder of Altonomy, & a guest lecturer at NYU & RPI, where he aims to educate and raise awareness of blockchain technology.",
+    image: "/events/nomad_capital.png",
+    link: "",
+    type: "workshop",
+    speakers: [
+      {
+        name: "Ricky Li"
+      }
+    ],
+    get isPast() { return !isFutureDate(this.date) },
+  },
+  {
+    id: "investment-framework-f23",
+    title: "Framework for Evaluating Investments",
+    date: "November 7, 2023",
+    description: "Building a framework for evaluating crypto opportunities from the investors perspective.\n\nAbout the Speaker: Skylar got down the crypto rabbit hole during DeFi summer. Recently, Skylar led the initiation into blockchain sector at a New York based family office, directing both liquid and venture investments. Prior to that, she spent 3 years at the portfolio implementation space at Bridgewater Associates. She was a Quarterback in the alpha portfolio team overseeing the daily portfolio construction process. She started her career at Citigroup and graduated from NYU Stern undergraduate program magna cum laude.",
+    image: "/events/framework_for_evaluating.png",
+    link: "",
+    type: "speaker",
+    speakers: [
+      {
+        name: "Skylar"
+      }
+    ],
+    get isPast() { return !isFutureDate(this.date) },
+  },
+  {
+    id: "alliance-dao-f23",
+    title: "DeFi Alliance DAO - how to build a good blockchain",
+    date: "November 14, 2023",
+    description: "Alliance DAO is the leading crypto accelerator & founder community. We will have the team members join virtually and highlight on what it takes to build a good blockchain company.",
+    image: "/events/defi_alliance.png",
+    link: "",
+    type: "speaker",
+    speakers: [
+      {
+        name: "Alliance DAO Team"
+      }
+    ],
+    get isPast() { return !isFutureDate(this.date) },
+  },
+  {
+    id: "graph-workshop-f23",
+    title: "The Graph Workshop and Hackathon",
+    date: "October 26, 2023",
+    description: "Learn, hack, and grow with Web3. Join contributors of The Graph ecosystem for a one day on-campus event filled with talks, swag, and prizes.",
+    image: "/events/graph_workshop.png",
+    link: "",
+    type: "workshop",
+    speakers: [
+      {
+        name: "Benjamin Liang"
+      }
+    ],
+    get isPast() { return !isFutureDate(this.date) },
+  },
+  {
+    id: "kurtosis-f23",
+    title: "Kurtosis Talk with Blockchain Lab @ NYU",
+    date: "October 17, 2023",
+    description: "Testing distributed systems like blockchains is no easy feat. In this talk, we'll deep dive into how the Ethereum Foundation does this and how Kurtosis is a key part of their stack for testing complex protocol upgrades such as The Merge. Along the way, I'll show how you can immediately start using Kurtosis to start developing + testing blockchain systems like Ethereum on your own and we'll learn more broadly about the software tools used to dev/test distributed applications in both web3 and web2.",
+    image: "/events/kurtosis_talk.png",
+    link: "",
+    type: "speaker",
+    speakers: [
+      {
+        name: "Tedi Mitiku"
+      }
+    ],
+    get isPast() { return !isFutureDate(this.date) },
+  },
+  {
+    id: "ava-labs-f23",
+    title: "Ava Labs x NYU Blockchain Lab",
+    date: "September 26, 2023",
+    description: "Join us for an event with Ava Labs at the NYU Entrepreneurial Institute. Please make your way to the Lean/Launchpad Room. If unsure, ask reception at the NYU Leslie eLab.",
+    image: "/events/ava_labs.png",
+    link: "",
+    type: "speaker",
+    speakers: [
+      {
+        name: "BlockchainLab@NYU"
+      }
+    ],
+    get isPast() { return !isFutureDate(this.date) },
+  },
+  {
+    id: "hypersdk-f24",
+    title: "Decentralize and Digitize - HyperSDK Workshop",
+    date: "October 3, 2024",
+    description: "HyperSDK - An opinionated framework for building hyper-scalable blockchains on Avalanche. Join Aaron Buchwald from Ava Labs, who previously worked as the Chief Flight Software Engineer for Cislunar Explorers at Space Systems Design Studio.",
+    image: "/events/decentralize_and_digitalize.png",
+    link: "",
+    type: "speaker",
+    speakers: [
+      {
+        name: "Aaron Buchwald"
+      }
+    ],
+    get isPast() { return !isFutureDate(this.date) },
+  },
+  {
+    id: "tokenomics-f24",
+    title: "Tokenomics Unveiled with Sean Rolland",
+    date: "October 17, 2024",
+    description: "Exploring the Evolution of Real World Assets and Global Securities Frameworks. Join Sean Rolland, Head of Product at Republic Crypto, as he discusses RWAs, GSFs, development of web3 projects tokens, strategic partnerships, and his contributions to UNICEF.",
+    image: "/events/exploring_the_evolution.png",
+    link: "",
+    type: "speaker",
+    speakers: [
+      {
+        name: "Sean Rolland"
+      }
+    ],
+    get isPast() { return !isFutureDate(this.date) },
+  },
+  {
+    id: "ora-f24",
+    title: "Upgrading Prediction Markets with AI",
+    date: "November 5, 2024",
+    description: "Join Alec James from ORA for an exploration of web3 x AI, including an overview of Ora and real-world applications with focus on prediction markets.",
+    image: "/events/upgrading_prediction.png",
+    link: "",
+    type: "speaker",
+    speakers: [
+      {
+        name: "Alec James"
+      }
+    ],
+    get isPast() { return !isFutureDate(this.date) },
+  },
+  {
+    id: "crypto-under-hood-f24",
+    title: "Blockchains Under the Hood",
+    date: "September 26, 2024",
+    description: "An intuitive introduction into the cryptographic principles that power decentralized systems, presented by Benedikt B\u00fcnz, Assistant Professor of Computer Science at NYU Courant and Co-founder and Chief Scientist at Espresso Systems.",
+    image: "/events/blockchains_under.png",
+    link: "",
+    type: "speaker",
+    speakers: [
+      {
+        name: "Benedikt B\u00fcnz"
+      }
+    ],
+    get isPast() { return !isFutureDate(this.date) },
   }
 ];
 

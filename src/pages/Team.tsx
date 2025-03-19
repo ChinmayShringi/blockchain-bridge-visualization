@@ -17,7 +17,7 @@ const Team = () => {
       faculty: ['Faculty Advisor'],
       executive: ['President', 'Vice President'],
       heads: ['Head of Community', 'Head of Marketing', 'Secretary'],
-      students: ['Student Researcher']
+      students: ['Student Researcher', 'Lab Board']
     };
 
     // Create filter buttons data
@@ -127,9 +127,13 @@ const Team = () => {
               If you're a NYU student with an interest in this field, we'd love to hear from you!
             </p>
             <a 
-              href="mailto:blockchainlabnyu@gmail.com" 
-              className="btn-primary inline-flex"
+              href="mailto:blockchainlabnyu@gmail.com?subject=Interested%20in%20Joining%20Blockchain%20Lab&body=Hi%2C%0A%0AI'm%20interested%20in%20joining%20the%20NYU%20Blockchain%20Lab.%0A%0AName%3A%0AProgram%3A%0AYear%3A%0AArea%20of%20Interest%3A%0A%0ABest%20regards"
+              className="btn-primary inline-flex items-center gap-2"
             >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
               Contact Us
             </a>
           </div>
