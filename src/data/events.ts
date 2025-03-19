@@ -428,7 +428,6 @@ export const events: Event[] = [
     },
   },
 ];
-
 // Helper functions to filter events
 export const getPastEvents = () => {
   const now = new Date();
@@ -445,12 +444,11 @@ export const getUpcomingEvents = () => {
     .filter((event) => {
       const eventDate = new Date(event.date);
       eventDate.setHours(0, 0, 0, 0);
-      return eventDate >= now;
+      return eventDate > now;
     })
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()); // Changed to sort latest first
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 };
 
-// Optional: Format date for display
 export const formatEventDate = (dateString: string): string => {
   return new Date(dateString).toLocaleDateString('en-US', {
     weekday: 'long',
