@@ -4,7 +4,8 @@ import { Github, Twitter, Mail, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-nyu-dark py-16">
+            
+    <footer className="bg-nyu-dark py-16 bg-white/1 backdrop-blur-md p-8 rounded-lg transition-colors">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Column 1: Branding & Description */}

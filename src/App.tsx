@@ -11,6 +11,7 @@ import Team from "./pages/Team";
 import Partners from "./pages/Partners";
 import Layout from "./components/Layout";
 import BlocksAdder from './pages/Blocks';
+import GlobePage from './pages/GlobePage';
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/team" element={<Team />} />
             <Route path="/partners" element={<Partners />} />
             <Route path="/blocks" element={<BlocksAdder />} />
+            <Route path="/globe" element={<GlobePage />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

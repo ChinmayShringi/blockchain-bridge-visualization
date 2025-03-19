@@ -25,7 +25,7 @@ const EventCard = ({ title, date, description, image, link, isPast, speakers }: 
     <>
       <div 
         onClick={() => setShowPopup(true)}
-        className="glass-panel group cursor-pointer overflow-hidden transition-all hover:scale-[1.02]"
+        className="bg-white/5 backdrop-blur-md border border-white/10 rounded-lg overflow-hidden hover:bg-white/10 transition-all duration-300 h-full cursor-pointer"
       >
         <div className="aspect-[16/9] overflow-hidden">
           <img

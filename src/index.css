@@ -82,15 +82,13 @@
   }
   
   .btn-primary {
-    @apply px-6 py-3 font-semibold rounded-lg bg-gradient-to-r from-nyu-blue to-nyu-teal 
-      text-white shadow-lg shadow-nyu-blue/20 hover:shadow-nyu-blue/40 
-      transition-all duration-300 hover:scale-[1.02] active:scale-[0.98];
+    @apply px-6 py-3 bg-nyu-blue text-white rounded-lg font-semibold 
+           hover:bg-nyu-blue/90 transition-colors duration-300;
   }
   
   .btn-secondary {
-    @apply px-6 py-3 font-semibold rounded-lg bg-white/10 backdrop-blur-md 
-      border border-white/10 text-white hover:bg-white/15 
-      transition-all duration-300 hover:scale-[1.02] active:scale-[0.98];
+    @apply px-6 py-3 bg-white/10 text-white rounded-lg font-semibold 
+           hover:bg-white/20 transition-colors duration-300;
   }
   
   .chip {
@@ -175,4 +173,18 @@
   opacity: 0;
   transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;
+}
+
+#globe-particles {
+  canvas {
+    @apply w-full h-full;
+  }
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80;
+}
+
+.hero-text {
+  @apply text-5xl md:text-6xl lg:text-7xl font-bold leading-tight;
 }
