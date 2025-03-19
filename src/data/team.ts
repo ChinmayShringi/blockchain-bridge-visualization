@@ -18,8 +18,8 @@ export const teamMembers: TeamMember[] = [
     position: 'Faculty Advisor',
     image: '/ayesha.jpg',
     socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' },
-      { type: 'email', url: 'mailto:ak@nyu.edu' }
+      { type: 'email', url: 'mailto:ak@nyu.edu' },
+      { type: 'linkedin', url: 'https://www.linkedin.com/in/ayeshakiani/' }
     ]
   },
   {
@@ -28,7 +28,6 @@ export const teamMembers: TeamMember[] = [
     position: 'Student Researcher',
     image: `${placeholder}Aayush+Anand`,
     socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' }
     ]
   },
   {
@@ -37,7 +36,6 @@ export const teamMembers: TeamMember[] = [
     position: 'Student Researcher',
     image: `${placeholder}Adi+Nair`,
     socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' }
     ]
   },
   {
@@ -46,7 +44,6 @@ export const teamMembers: TeamMember[] = [
     position: 'Student Researcher',
     image: `${placeholder}Amudhan+Muthaiah`,
     socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' }
     ]
   },
   {
@@ -55,26 +52,8 @@ export const teamMembers: TeamMember[] = [
     position: 'Student Researcher',
     image: `${placeholder}Chinmay+Shringi`,
     socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' },
-      { type: 'github', url: 'https://github.com/' }
-    ]
-  },
-  {
-    id: 'dheeraj-maske',
-    name: 'Dheeraj Maske',
-    position: 'Student Researcher',
-    image: `${placeholder}Dheeraj+Maske`,
-    socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' }
-    ]
-  },
-  {
-    id: 'goku',
-    name: 'Goku',
-    position: 'Student Researcher',
-    image: `${placeholder}Goku`,
-    socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' }
+      { type: 'linkedin', url: 'https://www.linkedin.com/in/chinmay-shringi/' },
+      { type: 'github', url: 'https://github.com/ChinmayShringi/' }
     ]
   },
   {
@@ -83,7 +62,6 @@ export const teamMembers: TeamMember[] = [
     position: 'Student Researcher',
     image: `${placeholder}Ta+Xia`,
     socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' }
     ]
   },
   {
@@ -92,7 +70,6 @@ export const teamMembers: TeamMember[] = [
     position: 'Researcher',
     image: `${placeholder}Vaibhav+Chandgir`,
     socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' }
     ]
   },
   {
@@ -101,7 +78,6 @@ export const teamMembers: TeamMember[] = [
     position: 'Lab Board',
     image: `${placeholder}Wendy+Weng`,
     socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' }
     ]
   },
   {
@@ -110,7 +86,6 @@ export const teamMembers: TeamMember[] = [
     position: 'Lab Board',
     image: `${placeholder}Aamir+Achhava`,
     socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' }
     ]
   },
   {
@@ -119,16 +94,6 @@ export const teamMembers: TeamMember[] = [
     position: 'Researcher',
     image: `${placeholder}Yathish+NV`,
     socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' }
-    ]
-  },
-  {
-    id: 'chinmay-shringi',
-    name: 'Chinmay Shringi',
-    position: 'Researcher',
-    image: `${placeholder}Chinmay+Shringi`,
-    socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' }
     ]
   },
   {
@@ -137,7 +102,6 @@ export const teamMembers: TeamMember[] = [
     position: 'Researcher',
     image: `${placeholder}Patrick+Xia`,
     socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' }
     ]
   },
   {
@@ -146,16 +110,6 @@ export const teamMembers: TeamMember[] = [
     position: 'Researcher',
     image: `${placeholder}Dheeraj+Maske`,
     socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' }
-    ]
-  },
-  {
-    id: 'amudhan-muthaiah',
-    name: 'Amudhan Muthaiah',
-    position: 'Researcher',
-    image: `${placeholder}Amudhan+Muthaiah`,
-    socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' }
     ]
   },
   {
@@ -164,16 +118,6 @@ export const teamMembers: TeamMember[] = [
     position: 'Lab Board',
     image: `${placeholder}Anusha+Sankholkar`,
     socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' }
-    ]
-  },
-  {
-    id: 'aayush-anand',
-    name: 'Aayush Anand',
-    position: 'Researcher',
-    image: `${placeholder}Aayush+Anand`,
-    socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' }
     ]
   },
   {
@@ -182,16 +126,6 @@ export const teamMembers: TeamMember[] = [
     position: 'Researcher',
     image: `${placeholder}Aatish+Balaji`,
     socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' }
-    ]
-  },
-  {
-    id: 'adi-nair',
-    name: 'Adi Nair',
-    position: 'Researcher',
-    image: `${placeholder}Adi+Nair`,
-    socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' }
     ]
   },
   {
@@ -200,7 +134,6 @@ export const teamMembers: TeamMember[] = [
     position: 'Lab Board',
     image: `${placeholder}Gokuleshwaran+Narayanan`,
     socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' }
     ]
   },
   {
@@ -209,7 +142,6 @@ export const teamMembers: TeamMember[] = [
     position: 'Researcher',
     image: `${placeholder}Mohd+Faiyaz`,
     socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' }
     ]
   }
 ];
