@@ -16,7 +16,7 @@ interface EventPopupProps {
 const EventPopup = ({ event, onClose }: EventPopupProps) => {
   return (
     <div 
-      className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+      className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-[100]"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}

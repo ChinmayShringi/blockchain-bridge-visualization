@@ -18,7 +18,7 @@ export const teamMembers: TeamMember[] = [
     position: 'Faculty Advisor',
     image: '/ayesha.jpg',
     socialLinks: [
-      { type: 'email', url: 'mailto:ak@nyu.edu' },
+      { type: 'email', url: 'mailto:ak8569@nyu.edu' },
       { type: 'linkedin', url: 'https://www.linkedin.com/in/ayeshakiani/' }
     ]
   },

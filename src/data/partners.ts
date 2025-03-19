@@ -90,6 +90,12 @@ const partners: Partner[] = [
     name: 'Espresso Systems', 
     logo: '/partners/espresso-logo.svg', 
     website: 'https://www.espressosys.com/' 
+  },
+  {
+    id: 'uniswap',
+    name: 'Uniswap',
+    logo: '/partners/uniswap-logo.svg', 
+    website: 'https://app.uniswap.org/'
   }
 ];
 
