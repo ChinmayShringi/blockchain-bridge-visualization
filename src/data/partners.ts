@@ -55,6 +55,42 @@ const partners: Partner[] = [
     logo: '/partners/flashbots-logo.png', 
     website: 'https://www.flashbots.net/' 
   },
+  { 
+    id: 'alliance', 
+    name: 'Alliance DAO', 
+    logo: '/partners/alliance-logo.png', 
+    website: 'https://alliance.xyz/' 
+  },
+  { 
+    id: 'mnnc', 
+    name: 'MNNC Group', 
+    logo: '/partners/mnnc-logo.svg', 
+    website: 'https://www.mnncgroup.com/' 
+  },
+  { 
+    id: 'ora', 
+    name: 'Ora Protocol', 
+    logo: '/partners/ora-logo.png', 
+    website: 'https://www.ora.io/' 
+  },
+  { 
+    id: 'aztec', 
+    name: 'Aztec Network', 
+    logo: '/partners/aztec-logo.svg', 
+    website: 'https://aztec.network/' 
+  },
+  { 
+    id: 'vaneck', 
+    name: 'VanEck', 
+    logo: '/partners/vaneck-logo.svg', 
+    website: 'https://www.vaneck.com/us/en/' 
+  },
+  { 
+    id: 'espresso', 
+    name: 'Espresso Systems', 
+    logo: '/partners/espresso-logo.svg', 
+    website: 'https://www.espressosys.com/' 
+  }
 ];
 
 export const getAlumni = () => [
