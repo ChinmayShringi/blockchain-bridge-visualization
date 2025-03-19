@@ -1,69 +1,25 @@
-# Welcome to your Lovable project
+# NYU Blockchain Lab Website
 
-## Project info
+A modern, interactive website for NYU's Blockchain Lab built with React, TypeScript, and Three.js.
 
-**URL**: https://lovable.dev/projects/9d7d260a-bd81-4b4f-9c54-6afa9ff8f16f
+## Features
 
-## How can I edit this code?
+- Interactive 3D globe visualization
+- Modern UI components using Radix UI and Tailwind CSS
+- Smooth page transitions and animations
+- Responsive design for all screen sizes
+- Real-time blockchain data visualization
+- Event management and display
+- Team and partner showcases
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/9d7d260a-bd81-4b4f-9c54-6afa9ff8f16f) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
+- React 18
 - TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/9d7d260a-bd81-4b4f-9c54-6afa9ff8f16f) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+- Vite
+- Three.js / React Three Fiber
+- TailwindCSS
+- Radix UI Components
+- React Router
+- React Query
+- Framer Motion

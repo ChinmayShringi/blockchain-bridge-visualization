@@ -14,9 +14,6 @@ export interface Event {
   speakers?: Speaker[];
 }
 
-const defaultImage =
-  '/lovable-uploads/7365799b-90fd-40f0-84e5-804fdea356b5.png';
-
 // Helper function to check if a date is in the future
 const isFutureDate = (dateString: string): boolean => {
   const eventDate = new Date(dateString);
