@@ -28,7 +28,7 @@ const Footer = () => {
               <a href="mailto:blockchainlabnyu@gmail.com" className="text-white/70 hover:text-nyu-blue transition-colors">
                 <Mail size={20} />
               </a>
-              <a href="https://www.linkedin.com/company/nyu-blockchain-lab/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-nyu-blue transition-colors">
+              <a href="https://www.linkedin.com/groups/8652445" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-nyu-blue transition-colors">
                 <Linkedin size={20} />
               </a>
             </div>

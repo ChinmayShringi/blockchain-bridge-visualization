@@ -1,3 +1,5 @@
+const placeholder = 'https://ui-avatars.com/api/?background=0D8ABC&color=fff&name=';
+
 export type Partner = {
   id: string;
   name: string;
@@ -15,7 +17,7 @@ export type Alumni = {
   linkedin: string;
 }
 
-// Partner logos - replace with actual logos in production
+// Partner logos - with fallback placeholders
 const partners: Partner[] = [
   { 
     id: 'ava-labs', 
@@ -55,45 +57,47 @@ const partners: Partner[] = [
   },
 ];
 
-// Alumni data - replace with actual alumni in production
-const alumni: Alumni[] = [
-  { 
-    id: 'john-doe', 
-    name: 'John Doe', 
-    photo: '/lovable-uploads/7365799b-90fd-40f0-84e5-804fdea356b5.png',
-    graduationYear: '2020',
-    company: 'Ethereum Foundation',
-    role: 'Protocol Researcher',
-    linkedin: 'https://linkedin.com/'
+export const getAlumni = () => [
+  {
+    id: 'klyra',
+    photo: `${placeholder}Klyra`,
+    graduationYear: '2023',
+    role: 'Founder',
+    company: 'Klyra',
+    linkedin: 'https://www.linkedin.com/in/skylar-weaver'
   },
-  { 
-    id: 'jane-smith', 
-    name: 'Jane Smith', 
-    photo: '/lovable-uploads/7365799b-90fd-40f0-84e5-804fdea356b5.png',
-    graduationYear: '2019',
-    company: 'Coinbase',
-    role: 'Software Engineer',
-    linkedin: 'https://linkedin.com/'
+  {
+    id: 'ora-protocol',
+    photo: `${placeholder}Ora+Protocol`,
+    graduationYear: '2023',
+    role: 'Co-Founder',
+    company: 'Ora Protocol',
+    linkedin: 'https://www.linkedin.com/in/alec-james'
   },
-  { 
-    id: 'alex-wang', 
-    name: 'Alex Wang', 
-    photo: '/lovable-uploads/7365799b-90fd-40f0-84e5-804fdea356b5.png',
-    graduationYear: '2021',
-    company: 'ConsenSys',
-    role: 'Product Manager',
-    linkedin: 'https://linkedin.com/'
+  {
+    id: 'bitminds',
+    photo: `${placeholder}BitMinds`,
+    graduationYear: '2023',
+    role: 'Founder',
+    company: 'BitMinds',
+    linkedin: 'https://www.linkedin.com/in/ben-liang'
   },
-  { 
-    id: 'sarah-johnson', 
-    name: 'Sarah Johnson', 
-    photo: '/lovable-uploads/7365799b-90fd-40f0-84e5-804fdea356b5.png',
-    graduationYear: '2018',
-    company: 'Chainlink Labs',
-    role: 'Cryptographic Researcher',
-    linkedin: 'https://linkedin.com/'
+  {
+    id: 'espresso',
+    photo: `${placeholder}Espresso+Systems`,
+    graduationYear: '2023',
+    role: 'Chief Scientist',
+    company: 'Espresso Systems',
+    linkedin: 'https://www.linkedin.com/in/benedikt-bunz'
   },
+  {
+    id: 'api3',
+    photo: `${placeholder}API3`,
+    graduationYear: '2022',
+    role: 'Co-Founder',
+    company: 'API3',
+    linkedin: 'https://www.linkedin.com/in/heikkivanttinen'
+  }
 ];
 
 export const getPartners = () => partners;
-export const getAlumni = () => alumni;

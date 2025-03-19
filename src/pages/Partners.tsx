@@ -1,8 +1,27 @@
-
 import { useState } from 'react';
 import { Building, User, ExternalLink } from 'lucide-react';
 import PageTransition from '../components/PageTransition';
 import { getPartners, getAlumni } from '../data/partners';
+
+const ImageWithFallback = ({ src, alt, className }: { src: string; alt: string; className: string }) => {
+  const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const img = e.currentTarget;
+    const fallbackUrl = new URL(img.src).searchParams.get('fallback');
+    if (fallbackUrl) {
+      img.src = fallbackUrl;
+    }
+  };
+
+  return (
+    <img 
+      src={src}
+      alt={alt}
+      className={className}
+      onError={handleError}
+      loading="lazy"
+    />
+  );
+};
 
 const Partners = () => {
   const [activeTab, setActiveTab] = useState('partners');
@@ -69,11 +88,10 @@ const Partners = () => {
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <div className="w-24 h-24 rounded-lg overflow-hidden mb-4 bg-white/5 flex items-center justify-center p-3">
-                      <img 
-                        src={partner.logo} 
-                        alt={partner.name} 
+                      <ImageWithFallback 
+                        src={partner.logo}
+                        alt={partner.name}
                         className="w-full h-auto"
-                        loading="lazy"
                       />
                     </div>
                     <h3 className="font-semibold text-center mb-3">{partner.name}</h3>
@@ -110,45 +128,44 @@ const Partners = () => {
           {activeTab === 'alumni' && (
             <div>
               <p className="text-center text-white/80 max-w-2xl mx-auto mb-12">
-                Our alumni have gone on to make significant contributions in the blockchain industry. 
-                Here are some of our distinguished graduates.
+                Our alumni have founded and led innovative projects in the blockchain space.
+                Here are some of our distinguished graduates making waves in the industry.
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {alumni.map((alum, index) => (
                   <div 
                     key={alum.id} 
-                    className="glass-panel p-6 animate-fade-in" 
+                    className="glass-panel p-6 animate-fade-in hover:transform hover:scale-[1.02] transition-all duration-300" 
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <div className="flex items-center mb-4">
-                      <div className="w-16 h-16 rounded-full overflow-hidden mr-4">
-                        <img 
-                          src={alum.photo} 
-                          alt={alum.name} 
+                    <div className="flex items-center mb-6">
+                      <div className="w-20 h-20 rounded-full overflow-hidden mr-4 border-2 border-white/10">
+                        <ImageWithFallback 
+                          src={alum.photo}
+                          alt={alum.company}
                           className="w-full h-full object-cover"
-                          loading="lazy"
                         />
                       </div>
                       <div>
-                        <h3 className="font-semibold">{alum.name}</h3>
-                        <p className="text-white/60 text-sm">Class of {alum.graduationYear}</p>
+                        <h3 className="font-semibold text-lg mb-1">{alum.company}</h3>
+                        {/* <p className="text-white/60 text-sm">Class of {alum.graduationYear}</p> */}
                       </div>
                     </div>
                     
-                    <div className="mb-4">
-                      <p className="text-white/90 font-medium">{alum.role}</p>
-                      <p className="text-white/70">{alum.company}</p>
+                    <div className="mb-6">
+                      {/* <p className="text-white/90 font-medium text-lg mb-1">{alum.role}</p> */}
+                      {/* <p className="text-nyu-blue font-medium">{alum.company}</p> */}
                     </div>
                     
-                    <a 
+                    {/* <a 
                       href={alum.linkedin} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-nyu-blue hover:text-nyu-teal text-sm flex items-center transition-colors"
+                      className="inline-flex items-center px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors text-white/80 hover:text-white"
                     >
-                      LinkedIn Profile <ExternalLink size={14} className="ml-1" />
-                    </a>
+                      View Profile <ExternalLink size={14} className="ml-2" />
+                    </a> */}
                   </div>
                 ))}
               </div>
