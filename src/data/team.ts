@@ -23,63 +23,6 @@ export const teamMembers: TeamMember[] = [
     ]
   },
   {
-    id: 'ben-liang',
-    name: 'Ben Liang',
-    position: 'President',
-    image: '/ben.jpg',
-    socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' },
-      { type: 'twitter', url: 'https://twitter.com/' }
-    ]
-  },
-  {
-    id: 'ruben-garcia',
-    name: 'Ruben Garcia',
-    position: 'Vice President',
-    image: '/ruben.jpg',
-    socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' }
-    ]
-  },
-  {
-    id: 'alejandro-gala',
-    name: 'Alejandro Gala',
-    position: 'Head of Community',
-    image: '/alejandro.jpg',
-    socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' },
-      { type: 'twitter', url: 'https://twitter.com/' }
-    ]
-  },
-  {
-    id: 'kylie-wong',
-    name: 'Kylie Wong',
-    position: 'Head of Marketing',
-    image: '/kylie.jpg',
-    socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' }
-    ]
-  },
-  {
-    id: 'nour-acogny',
-    name: 'Nour Acogny',
-    position: 'Secretary',
-    image: '/nour.jpg',
-    socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' },
-      { type: 'email', url: 'mailto:na@nyu.edu' }
-    ]
-  },
-  {
-    id: 'aatish',
-    name: 'Aatish',
-    position: 'Student Researcher',
-    image: `${placeholder}Aatish`,
-    socialLinks: [
-      { type: 'linkedin', url: 'https://linkedin.com/' }
-    ]
-  },
-  {
     id: 'aayush-anand',
     name: 'Aayush Anand',
     position: 'Student Researcher',
