@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Calendar, ArrowRight, Users } from 'lucide-react';
 import AvatarGroup from './AvatarGroup';
 import EventPopup from './EventPopup';
@@ -20,6 +20,18 @@ interface EventCardProps {
 
 const EventCard = ({ title, date, description, image, link, isPast, speakers }: EventCardProps) => {
   const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    if (showPopup) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showPopup]);
 
   return (
     <>

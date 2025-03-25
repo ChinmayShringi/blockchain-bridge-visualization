@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -11,9 +10,9 @@ const Navbar = () => {
   // Navigation links
   const navLinks = [
     { name: 'Home', path: '/' },
+    { name: 'Team', path: '/team' },
     { name: 'Events', path: '/events' },
     { name: 'Mission', path: '/mission' },
-    { name: 'Team', path: '/team' },
     { name: 'Partners', path: '/partners' },
   ];
   
@@ -45,8 +44,8 @@ const Navbar = () => {
       <div className="container px-4 mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="text-2xl font-display font-bold text-white flex items-center">
-          <span className="mr-2">NYU</span>
-          <span className="text-gradient">Blockchain Lab</span>
+          {/* <span className="mr-2"></span> */}
+          <span className="text-gradient">NYU Blockchain Lab Student Events</span>
         </Link>
         
         {/* Desktop Navigation */}
@@ -74,14 +73,14 @@ const Navbar = () => {
       
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden glass-panel absolute top-full left-0 right-0 py-4 animate-slide-in-bottom">
+        <div className="md:hidden bg-black/95 backdrop-blur-lg absolute top-full left-0 right-0 py-4 animate-slide-in-bottom">
           <div className="container px-4 mx-auto flex flex-col space-y-4">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
                 className={`text-lg font-medium py-2 ${
-                  isActive(link.path) ? 'text-nyu-blue' : 'text-white/80 hover:text-white'
+                  isActive(link.path) ? 'text-nyu-blue' : 'text-white hover:text-white'
                 }`}
                 onClick={() => setIsOpen(false)}
               >

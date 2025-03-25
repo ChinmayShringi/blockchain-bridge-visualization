@@ -45,7 +45,7 @@ const Index = () => {
               <div className="max-w-3xl" ref={heroRef}>
                 <div className="chip mb-4 animation-delay-200 animate-fade-in">Student Organization</div>
                 <h1 className="hero-text animation-delay-400 animate-fade-in mb-6">
-                  <span className="text-gradient">NYU Blockchain Lab</span>
+                  <span className="text-gradient">NYU Blockchain Lab Student Events</span>
                 </h1>
                 <p className="text-xl md:text-2xl text-white/80 mb-8 animation-delay-600 animate-fade-in">
                   We are a student organization aiming to bring Blockchain and Distributed Ledger

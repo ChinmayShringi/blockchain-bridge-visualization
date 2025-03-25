@@ -27,7 +27,7 @@ const Events = () => {
         <div className="container mx-auto px-4 mb-16">
           <div className="text-center max-w-3xl mx-auto">
             <div className="chip mb-4 animate-fade-in">Join Us</div>
-            <h1 className="section-heading animate-fade-in animation-delay-200">Events</h1>
+            <h1 className="section-heading animate-fade-in animation-delay-200">Student Events</h1>
             <p className="text-white/80 text-lg animate-fade-in animation-delay-400">
               {upcomingEvents.length > 0 
                 ? "Discover our upcoming events and browse through our past workshops, presentations, and hackathons."
