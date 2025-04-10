@@ -87,7 +87,7 @@ const Partners = () => {
                     className="glass-panel p-6 flex flex-col items-center animate-fade-in transition-transform duration-300 hover:transform hover:scale-[1.03]" 
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <div className="w-24 h-24 rounded-lg overflow-hidden mb-4 bg-white/5 flex items-center justify-center p-3">
+                    <div className={`w-24 h-24 rounded-lg overflow-hidden mb-4 ${partner.showWhite ? 'bg-white' : 'bg-white/5'} flex items-center justify-center p-3`}>
                       <ImageWithFallback 
                         src={partner.logo}
                         alt={partner.name}

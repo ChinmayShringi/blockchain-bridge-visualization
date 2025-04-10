@@ -424,6 +424,58 @@ export const events: Event[] = [
       return !isFutureDate(this.date);
     },
   },
+  {
+    id: 'figment-capital-s24',
+    title: 'Figment Capital Workshop',
+    date: 'April 14, 2025',
+    description: 'Jim is the managing partner at Figment Capital. Fig Cap is an early stage venture fund focused on blockchain infrastructure. The investment firm commenced in 2021 and has grown its reputation to be one of the most active and well regarded early stage funds in the space since.',
+    image: '/events/figment_capital.png',
+    link: 'https://partiful.com/e/OIDsykKthLDCGkwlxyQC',
+    type: 'workshop',
+    speakers: [
+      {
+        name: 'James Parillo',
+      },
+    ],
+    get isPast() {
+      return !isFutureDate(this.date);  
+    },
+  },
+  {
+    id: 'dcg-s24',
+    title: 'DCG Workshop',
+    date: 'April 7, 2025',
+    description: 'Jacqueline Kwok from DCG will be joining us to discuss the latest trends in the blockchain space.',
+    image: '/events/dcg.png',
+    link: 'https://partiful.com/e/AR1ER7CfpxKLY8qV1uH8',
+    type: 'workshop',
+    speakers: [
+      {
+        name: 'Jacqueline Kwok',
+      },
+    ],
+    get isPast() {
+      return !isFutureDate(this.date);
+    },
+  },
+  {
+    id: 'aztec-s24',
+    title: 'Aztec Workshop',
+    date: 'March 31, 2025',
+    description: 'Michael Klein of Aztec Protocol will be joining us to discuss the latest trends in the blockchain space.',
+    image: '/events/aztec.png',
+    link: 'https://partiful.com/e/FyuakhMad75ujetkEeYU',
+    type: 'workshop',
+    speakers: [
+      {
+        name: 'Michael Klein',
+      },
+    ],
+    get isPast() {
+      return !isFutureDate(this.date);
+    },
+  }
+
 ];
 // Helper functions to filter events
 export const getPastEvents = () => {
